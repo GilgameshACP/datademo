@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+<head> 
+    <title>A homepage</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    
+
+    <div id="auth">
+        <div sec:authorize="isAnonymous()"><button id="signinBtn"><a href="/signin">Sign In</a></button></div>
+        <div sec:authorize="isAnonymous()"><button id="signupBtnNav"><a href="/signup">Sign Up</a></button></div>
+        <div sec:authorize="isAuthenticated()"><button id="logoutBtn"><a href="/logout">Logout</a></button></div>
+    </div>
+</div>
+</body>
+</html>
