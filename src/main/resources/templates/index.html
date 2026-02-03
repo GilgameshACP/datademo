@@ -8,9 +8,21 @@
     
 
     <div id="auth">
-        <div sec:authorize="isAnonymous()"><button id="signinBtn"><a href="/signin">Sign In</a></button></div>
-        <div sec:authorize="isAnonymous()"><button id="signupBtnNav"><a href="/signup">Sign Up</a></button></div>
-        <div sec:authorize="isAuthenticated()"><button id="logoutBtn"><a href="/logout">Logout</a></button></div>
+        <div sec:authorize="isAnonymous()">
+    <form action="/signin" method="get">
+        <button type="submit" id="signinBtn">Sign In</button>
+    </form>
+</div>
+        <div sec:authorize="isAnonymous()">
+    <form action="/signup" method="get">
+        <button type="submit" id="signupBtnNav">Sign Up</button>
+    </form>
+</div>
+        <div sec:authorize="isAuthenticated()">
+    <form action="/logout" method="post">
+        <button type="submit" id="logoutBtn">Logout</button>
+    </form>
+</div>
     </div>
 </div>
 </body>

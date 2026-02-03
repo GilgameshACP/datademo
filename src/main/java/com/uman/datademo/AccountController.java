@@ -61,13 +61,12 @@ public class AccountController {
     @RequestMapping(value = "/signin", method = RequestMethod.GET)
     public String SignIn(@RequestParam(name = "error", required = false) String error, Model model, Principal principal) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (auth.getName().equals("anonymousUser")) {
+        if (auth == null || auth.getName().equals("anonymousUser")) {
             if (error != null) {
                 model.addAttribute("errorMessage", "Invalid Username or Password");
-                return "/signin";
             }
             
-            return "index";
+            return "signin";
         } else {
             return "redirect:/";
         }
@@ -75,7 +74,7 @@ public class AccountController {
 
     @RequestMapping(value = "/signin", method = RequestMethod.POST)
     public String SignInPOST() {
-        return "redirect:/";
+        return "signin";
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
