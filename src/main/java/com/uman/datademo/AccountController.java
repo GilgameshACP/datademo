@@ -54,7 +54,7 @@ public class AccountController {
     public String Index() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         System.out.println(auth.getName());
-        return "/index";
+        return "index";
     }
 
 
@@ -97,7 +97,7 @@ public class AccountController {
             bindingResult.rejectValue("confPassword", "error.confPassword", "Passwords do not match");
             return "/signup";
         }
-        System.out.println("error");
+            System.out.println("error");
             return "/signup";
         }
         System.out.println(signUpModel.getFullName());
