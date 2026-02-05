@@ -82,7 +82,7 @@ public class AccountController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth == null || auth.getName().equals("anonymousUser")) {
             model.addAttribute("signUpModel", new SignUpModel());
-            return "/signup";
+            return "signup";
         } else {
             return "redirect:/";
         }
@@ -95,10 +95,10 @@ public class AccountController {
             System.out.println(bindingResult.getAllErrors());
         if (!signUpModel.isPasswordMatching()) {
             bindingResult.rejectValue("confPassword", "error.confPassword", "Passwords do not match");
-            return "/signup";
+            return "signup";
         }
             System.out.println("error");
-            return "/signup";
+            return "signup";
         }
         System.out.println(signUpModel.getFullName());
         System.out.println(signUpModel.getUsername());
@@ -117,6 +117,6 @@ public class AccountController {
 
     // @GetMapping("/login")
     // public String loginPage() {
-    //     return "/signin";
+    //     return "signin";
     // }
 }
